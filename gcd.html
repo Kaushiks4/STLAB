@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>GCD of Two Numbers</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>GCD of two numbers</h1>
+            </div>
+                Enter First Number : <br>
+                <input type="number" id="Text1" name="TextBox1">
+                <br><br>
+                Enter Second Number : <br>
+                <input type="number" id="Text2" name="TextBox2">
+                <br><br>
+                GCD : <span id="Text3" ></span>
+                <br><br>
+             <input type="button" name="clickbtn" value="Display Result" onclick="gcd()">
+             <button onclick="document.getElementById('Text1').value = '';document.getElementById('Text2').value = '';document.getElementById('Text3').innerHTML = '';">Clear</button>
+        </div>
+    </body>
+    <script>
+        function gcd() {
+            var n1 = document.getElementById("Text1").value;
+            var n2 = document.getElementById("Text2").value;
+            if(n1 != '' && n2 != ''){
+                if((n1 < 0) || (n2 < 0)){
+                    document.getElementById('Text3').innerHTML = 'Invalid values';
+                } else {
+                    while(n2) {
+                        var t = n2;
+                        n2 = n1 % n2;
+                        n1 = t;
+                    }
+                    document.getElementById('Text3').innerHTML = n1;
+                }
+            } else{
+                document.getElementById('Text3').innerHTML = 'Invalid Input';
+            }
+        }
+    </script>
+</html>
